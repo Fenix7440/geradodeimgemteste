@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Imagens - Stable Diffusion</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+    input[type="text"], select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Gerador de Imagens - Stable Diffusion</h2>
+
+    <label for="model-select">Escolha um modelo</label>
+    <select id="model-select">
+      <option value="">Selecione um modelo</option>
+      <option value="https://civitai.com/api/download/models/140409?type=Model&format=SafeTensor&size=pruned&fp=fp16">Model 1</option>
+      <option value="https://civitai.com/api/download/models/880370?type=Model&format=SafeTensor">Model 2</option>
+      <option value="https://civitai.com/api/download/models/263091?type=Model&format=SafeTensor">Model 3</option>
+      <option value="https://civitai.com/api/download/models/1522603?type=Model&format=SafeTensor">Model 4</option>
+      <option value="https://civitai.com/api/download/models/1535764?type=Model&format=SafeTensor">Model 5</option>
+      <option value="https://civitai.com/api/download/models/22545?type=Model&format=SafeTensor&size=full&fp=fp16">Model 6</option>
+      <option value="https://civitai.com/api/download/models/404858?type=Model&format=SafeTensor">Model 7</option>
+    </select>
+
+    <label for="model-url">Ou cole o link do modelo</label>
+    <input type="text" id="model-url" placeholder="Cole o link do modelo da Civitai aqui...">
+
+    <label for="prompt">Prompt</label>
+    <textarea id="prompt" rows="4" placeholder="Digite o prompt aqui..."></textarea>
+
+    <label for="negative-prompt">Prompt Negativo</label>
+    <textarea id="negative-prompt" rows="3" placeholder="Digite o prompt negativo aqui..."></textarea>
+
+    <button onclick="gerarImagem()">Gerar Imagem</button>
+  </div>
+
+  <script>
+    function gerarImagem() {
+      const modeloSelect = document.getElementById('model-select').value;
+      const modeloUrl = document.getElementById('model-url').value;
+      const prompt = document.getElementById('prompt').value;
+      const negativePrompt = document.getElementById('negative-prompt').value;
+
+      const modeloFinal = modeloUrl || modeloSelect;
+
+      if (!modeloFinal) {
+        alert('Por favor, selecione ou insira o link de um modelo.');
+        return;
+      }
+
+      console.log("Modelo:", modeloFinal);
+      console.log("Prompt:", prompt);
+      console.log("Prompt Negativo:", negativePrompt);
+
+      // Aqui você pode integrar com sua API backend de geração
+      alert("Parâmetros prontos para gerar imagem (ver console)");
+    }
+  </script>
+</body>
+</html>
